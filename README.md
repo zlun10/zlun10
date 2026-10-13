@@ -1,32 +1,33 @@
 ### Hi there, I'm zlun 👋
 
+嵌入式固件工程师，做语音对讲类产品的拓展 IC 固件。
+
 - 📍 中国 · GitHub 2024-04 加入
-- 🛠 主要写前端：Vue 3 / 原生 JavaScript / HTML+CSS，用 Python 写小工具脚本
-- 🚀 当前在做 **[One-hub](https://github.com/zlun10/One-hub)** —— 个人信息中枢 PWA，离线可用、数据只存本机
-- 🌐 喜欢把想法直接丢到 GitHub Pages 上跑起来，边用边改
+- 🛠 主力语言 C，平台 ARM Cortex-M0+（CW32L01x 系列），Keil MDK + Arm Compiler 6（armclang）
+- 🔌 通过 AT 指令驱动外部语音模组，并在拓展 IC 上自己实现按键、显示、NV 存储等功能
+- 🐞 调试链：SEGGER J-Link / SWD 烧录，运行日志走 RTT，串口时序用逻辑分析仪抓
+- 🤖 同时用多个 AI 编码工具在同一份仓库上干活，关心"知识存在哪、换工具会不会丢"
 
 ## 🧰 技术栈
 
 <div align="left">
-  <img src="https://skillicons.dev/icons?i=html,css,js,vue,py,git" alt="skills" />
+  <img src="https://skillicons.dev/icons?i=c,cpp,py,powershell,git,vscode" alt="skills" />
 </div>
 
-## 🔭 正在做的
+## 🏗 日常在解决的事
 
-| 项目 | 说明 | 状态 |
-|------|------|------|
-| [One-hub](https://github.com/zlun10/One-hub) | 信息中枢 PWA：Vue 3 + Service Worker 离线缓存 + localStorage，可「添加到主屏幕」当独立 App 用 | [🌍 在线体验](https://zlun10.github.io/One-hub/) |
-| [messi6199.github.io](https://github.com/zlun10/messi6199.github.io) | 单文件个人介绍页，纯 HTML/CSS 手写 | 迭代中 |
-| [liveGame-src](https://github.com/zlun10/liveGame-src) | 直播互动小游戏方向的占位仓库 | 规划中 |
+**分层与多产品**
+`chip → drv → hal → bsp → app` 单向分层，同一套驱动靠 BSP 配置与产品宏跑多款板子；每个产品一个独立工程，命令行脚本一次产出 debug / release。
 
-## 📊 GitHub Stats
+**少上实机**
+逻辑尽量先在 PC 侧验证：主机端单元测试 + 显示布局仿真，实机只用来确认时序与电气行为，减少"改一版烧一次"的来回。
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=zlun10&show_icons=true&theme=gruvbox&hide_border=true&count_private=true" alt="stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zlun10&layout=compact&theme=gruvbox&hide_border=true" alt="langs" />
-</div>
+**把流程做成脚本**
+构建、烧录、抓日志、版本同步串成闭环，改动可以批量验证而不是手工点 IDE。
 
-<!--
-上面两块卡片走的是第三方渲染服务（github-readme-stats），只是装饰：
-不喜欢外链可以直接删掉这一段，本地渲染不出问题。
--->
+**跨工具的规范只写一份**
+协作与编码规则集中在唯一规范源，各 AI 工具的入口文件只做指向它薄入口，由校验脚本检查漂移 —— 工具可以换，规范不该有第二份副本。
+
+## 🌱 也在玩
+
+Vue 3 + Service Worker 的 PWA 小工具，和个人主页本身。
